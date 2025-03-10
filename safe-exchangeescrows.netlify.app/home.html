@@ -11,35 +11,37 @@
             padding: 0;
             background-color: white;
         }
-        
+
         header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         header img {
-            height: 60px;
+            height: 50px;
         }
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .logo img {
-            width: 300px;
-            margin-bottom: 20px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 15px;
         }
 
         h2 {
-            color: #fcb34a; /* Gold color */
+            color: #fcb34a;
+            font-size: 22px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 10px;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .icon-card {
@@ -47,76 +49,58 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 120px; /* Fixed height to accommodate larger icons */
-            cursor: pointer; /* Show pointer on hover */
+            height: 100px;
+            cursor: pointer;
+            padding: 10px;
         }
 
         .icon-card img {
             object-fit: contain;
-            max-width: 100%; /* Prevent images from exceeding container size */
+            max-width: 100%;
+            height: auto;
         }
 
         .icon-card p {
             margin: 5px 0 0;
-            font-size: 16px;
+            font-size: 14px;
             color: purple;
         }
 
-        /* Individual icon sizes for manual adjustment */
-        .icon-fireside img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-wallet img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-brainstorm img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-mine img {
-            width: 80px; /* Adjust as needed */
-            height: 60px; /* Adjust as needed */
-        }
-
-        .icon-blockchain img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-develop img {
-            width: 900px; /* Adjust as needed */
-            height: 60px; /* Adjust as needed */
-        }
-
-        .icon-kyc img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-chat img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .icon-profiles img {
-            width: 60px;
-            height: 60px;
+        /* Adjust individual icon sizes for mobile */
+        .icon-card img {
+            width: 50px;
+            height: 50px;
         }
 
         .button {
             background-color: purple;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border-radius: 20px;
             margin: 20px auto;
-            width: 80%;
+            width: 90%;
+            max-width: 300px;
             text-align: center;
             cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 20px;
+            }
+
+            .icon-card p {
+                font-size: 12px;
+            }
+
+            .icon-card {
+                height: 90px;
+            }
+
+            .button {
+                padding: 10px;
+                font-size: 16px;
+            }
         }
     </style>
     <script>
