@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Browser Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #fcb34a; /* Gold color */
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 120px; /* Fixed height to accommodate larger icons */
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .icon-card img {
+            object-fit: contain;
+            max-width: 100%; /* Prevent images from exceeding container size */
+        }
+
+        .icon-card p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            color: purple;
+        }
+
+        /* Individual icon sizes for manual adjustment */
+        .icon-fireside img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-wallet img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-brainstorm img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-mine img {
+            width: 80px; /* Adjust as needed */
+            height: 60px; /* Adjust as needed */
+        }
+
+        .icon-blockchain img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-develop img {
+            width: 900px; /* Adjust as needed */
+            height: 60px; /* Adjust as needed */
+        }
+
+        .icon-kyc img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-chat img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-profiles img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .button {
+            background-color: purple;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 80%;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function openWalletPage() {
+            window.location.href = "verifyindex.html"; // Replace with your actual wallet page URL
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/pi_logo-746a5f99.png" alt="Pi Logo">
+        </div>
+        <h2>Welcome to the Pi Browser</h2>
+        <div class="grid">
+            <div class="icon-card icon-fireside">
+                <img src="assets/fireside-736eeda9.webp" alt="Fireside">
+                <p>Fireside</p>
+            </div>
+            <div class="icon-card icon-wallet" onclick="openWalletPage()">
+                <img src="assets/wallet-32ef219e.webp" alt="Wallet">
+                <p>Wallet</p>
+            </div>
+            <div class="icon-card icon-brainstorm">
+                <img src="assets/brainstorm-b6711d75.webp" alt="Brainstorm">
+                <p>Brainstorm</p>
+            </div>
+            <div class="icon-card icon-mine">
+                <img src="assets/mine.png" alt="Mine">
+                <p>Mine</p>
+            </div>
+            <div class="icon-card icon-blockchain">
+                <img src="assets/blockchain-c5de89a7.webp" alt="Blockchain">
+                <p>Blockchain</p>
+            </div>
+            <div class="icon-card icon-develop">
+                <img src="assets/develop.png" alt="Develop">
+                <p>Develop</p>
+            </div>
+            <div class="icon-card icon-kyc">
+                <img src="assets/kyc-94134b06.webp" alt="KYC">
+                <p>KYC</p>
+            </div>
+            <div class="icon-card icon-chat">
+                <img src="assets/chat-8bce2cb7.webp" alt="Chat">
+                <p>Chat</p>
+            </div>
+            <div class="icon-card icon-profiles">
+                <img src="assets/profile.png" alt="Profiles">
+                <p>Profiles</p>
+            </div>
+        </div>
+        <div class="button">Explore the Ecosystem</div>
+    </div>
+</body>
+</html>
